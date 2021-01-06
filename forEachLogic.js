@@ -4,18 +4,15 @@ function foo(...args) {
 
 function forEachLogic(arr1,varFunc) {
 
-    let returnArr=[];
-
+    // forEach mutates the array is operates on
+    // iterate over array and apply variable function to each item
     for (let i = 0; i < arr1.length; i++) {
-        
-        // perform variable function on parameter array at index i
-        // push each mutated value into return array
-        returnArr.push(varFunc(arr1[i]));
+        arr1[i] = varFunc(arr1[i]);
     }
-
-    return returnArr;
 }
 
 let myArr = [2,3,4,5];
 
-console.log(forEachLogic(myArr,foo));
+forEachLogic(myArr,foo);
+
+console.log(myArr);
